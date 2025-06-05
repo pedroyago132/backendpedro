@@ -266,7 +266,7 @@ async function processMessage(phone, message, instanceId) {
       phone: `+${phone}`,
       instance: findByInstance.instance,
       token: findByInstance.token,
-      message: "👋 *Bem-vindo!* Escolha uma opção:\n\n1. Iniciar agendamento\n2. Conhecer serviços e valores \n 3. para ver Produtos"
+      message: "👋 *Bem-vindo!* Escolha uma opção:\n\n1. Iniciar agendamento\n2. Conhecer serviços e valores \n3. para ver Produtos"
     });
     return;
   }
@@ -357,7 +357,7 @@ async function processMessage(phone, message, instanceId) {
         // NOVO FLUXO PARA PRODUTOS
         const productsData = await get(ref(db, `${session.userId}/produtos`)).then(s => s.val());
 
-        if (productsData && productsData && productsData.length > 0) {
+        if (productsData) {
           productsData.map((p, i) =>
               `🛍️ *${i + 1}. ${p.nome}* - R$ ${p.valor}\n` +
               `📦 ${p.descricao || 'Produto premium'}\n` +
