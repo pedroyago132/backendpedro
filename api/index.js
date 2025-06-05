@@ -358,7 +358,7 @@ async function processMessage(phone, message, instanceId) {
         const productsData = await get(ref(db, `${session.userId}/produtos`)).then(s => s.val());
 
         if (productsData) {
-       const productsList = Object.keys(productsData).map((p, i) =>
+               const productsList = productsData.map((p, i) =>
               `🛍️ *${i + 1}. ${p.nome}* - R$ ${p.valor}\n` +
               `📦 ${p.descricao || 'Produto premium'}\n` +
               (p.estoque ? `📊 Disponível: ${p.estoque} unidades\n` : '') +
