@@ -266,7 +266,7 @@ async function processMessage(phone, message, instanceId) {
       phone: `+${phone}`,
       instance: findByInstance.instance,
       token: findByInstance.token,
-      message: "👋 *Bem-vindo!* Escolha uma opção:\n\n1. Iniciar agendamento\n2. Conhecer serviços e valores"
+      message: "👋 *Bem-vindo!* Escolha uma opção:\n\n1. Iniciar agendamento\n2. Conhecer serviços e valores \n 3. para ver Produtos"
     });
     return;
   }
@@ -334,7 +334,7 @@ async function processMessage(phone, message, instanceId) {
             phone: `+${phone}`,
             instance: findByInstance.instance,
             token: findByInstance.token,
-            message: "Por favor, digite seu *nome completo* para continuar:"
+            message: "Por favor, digite seu *Nome* para continuar:"
           });
         }
       } else if (message === '2') {
@@ -1014,5 +1014,5 @@ server.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`📌 Estrutura Firebase: {userId}/agendamentos`);
   console.log('Sessões', activeSessions);
-
+ configureWebhook()
 });
