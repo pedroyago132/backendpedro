@@ -357,7 +357,7 @@ async function processMessage(phone, message, instanceId) {
         // NOVO FLUXO PARA PRODUTOS
         const productsData = await get(ref(db, `${session.userId}/produtos`)).then(s => s.val());
 
-        if (productsData && productsData.produtos && productsData.produtos.length > 0) {
+        if (productsData && productsData && productsData.length > 0) {
           productsData.map((p, i) =>
               `🛍️ *${i + 1}. ${p.nome}* - R$ ${p.valor}\n` +
               `📦 ${p.descricao || 'Produto premium'}\n` +
