@@ -266,7 +266,7 @@ async function processMessage(phone, message, instanceId) {
       phone: `+${phone}`,
       instance: findByInstance.instance,
       token: findByInstance.token,
-      message: "👋 *Bem-vindo!* Escolha uma opção:\n\n1. Iniciar agendamento\n2. Conhecer serviços e valores \n3. para ver Produtos"
+      message: "👋 *Bem-vindo!* Escolha uma opção:\n\n1. Agendar Serviço\n2. Conhecer serviços e valores \n3. para ver Produtos"
     });
     return;
   }
@@ -408,7 +408,7 @@ async function processMessage(phone, message, instanceId) {
           instance: findByInstance.instance,
           token: findByInstance.token,
           message: "🔙 Voltando ao menu principal:\n\n" +
-            "1. Agendamento\n2. Serviços\n3. Produtos"
+            "1. Agendar Serviço\n2. Serviços\n3. Produtos"
         });
       } else {
         const productsData = await get(ref(db, `${session.userId}/produtos`)).then(s => s.val());
