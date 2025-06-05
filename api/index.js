@@ -361,7 +361,7 @@ async function processMessage(phone, message, instanceId) {
                const productsList = Object.entries(productsData).map((p, i) =>
               `🛍️ *${i + 1}. ${p.nome}* - R$ ${p.valor}\n` +
               `📦 ${p.descricao || 'Produto premium'}\n` +
-              (p.estoque ? `📊 Disponível: ${p.estoque} unidades\n` : '') +
+              (p.estoque ? `📊 Disponível: ${p.nome} unidades\n` : '') +
               `──────────────────`
             )
             .join('\n');
@@ -1012,6 +1012,5 @@ const PORT = process.env.PORT || 3030;
 server.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`📌 Estrutura Firebase: {userId}/agendamentos`);
-  console.log('Sessões', activeSessions);
  configureWebhook()
 });
